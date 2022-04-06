@@ -11,25 +11,27 @@ namespace BankTransactions.Models
 
         [Column(TypeName = "nvarchar(12)")]
         [DisplayName("Account Number")]
-        [Required]
+        [Required(ErrorMessage = "This field is required.")]
+        [MaxLength(12, ErrorMessage ="Maximum 12 characters only.")]
         public string AccountNumber { get; set; }
 
         [DisplayName("Beneficiary Name")]
         [Column(TypeName = "nvarchar(100)")]
-        [Required]
+        [Required(ErrorMessage = "This field is required.")]
         public string BeneficiaryName { get; set; }
 
         [DisplayName("Bank Name")]
         [Column(TypeName = "nvarchar(100)")]
-        [Required]
+        [Required(ErrorMessage = "This field is required.")]
         public string BankName { get; set; }
 
         [DisplayName("SWIFT Code")]
         [Column(TypeName = "nvarchar(11)")]
-        [Required]
+        [Required(ErrorMessage = "This field is required.")]
+        [MaxLength(12, ErrorMessage = "Maximum 12 characters only.")]
         public string SWIFTCode { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field is required.")]
         public int Amount { get; set; }
         public DateTime Date { get; set; }
     }
