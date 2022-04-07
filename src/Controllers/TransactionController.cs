@@ -20,9 +20,25 @@ namespace BankTransactions.Controllers
         }
 
         // GET: Transaction
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pg = 1)
         {
-            return View(await _context.Transactions.ToListAsync());
+            List<Transaction> transactions = await _context.Transactions.ToListAsync();
+            const int pageSize = 10;
+            if (pg < 1)
+                pg = 1;
+            int recsCount = transactions.Count();
+
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+
+            var data = transactions.Skip(recSkip).Take(pager.PageSize).ToList();
+
+            this.ViewBag.Pager = pager;
+
+
+            //return View(transactions);
+
+            return View(data);
         }
 
 
