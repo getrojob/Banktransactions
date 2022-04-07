@@ -12,7 +12,7 @@ namespace BankTransactions.Models
         [Column(TypeName = "nvarchar(12)")]
         [DisplayName("Account Number")]
         [Required(ErrorMessage = "This field is required.")]
-        [MaxLength(12, ErrorMessage ="Maximum 12 characters only.")]
+        [MaxLength(12, ErrorMessage = "Maximum 12 characters only.")]
         public string AccountNumber { get; set; }
 
         [DisplayName("Beneficiary Name")]
@@ -33,6 +33,7 @@ namespace BankTransactions.Models
 
         [Required(ErrorMessage = "This field is required.")]
         public int Amount { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MMM-dd-yy}")]
         public DateTime Date { get; set; }
     }
 }
