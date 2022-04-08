@@ -20,8 +20,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore Banktransactions/Banktransactions.csproj
+      run: dotnet restore
     - name: Build
-      run: dotnet build Banktransactions/Banktransactions.csproj --no-restore
+      run: dotnet build --no-restore
     - name: Test
-      run: dotnet test MoqTransactionTests/MoqTransactionTests.csproj --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
