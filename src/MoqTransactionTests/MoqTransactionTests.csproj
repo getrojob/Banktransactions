@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\BankTransactions.csproj" />
+    <ProjectReference Include="..\BankTransactions\BankTransactions.csproj" />
   </ItemGroup>
 
 </Project>
