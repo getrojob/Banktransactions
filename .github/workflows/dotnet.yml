@@ -2,9 +2,9 @@ name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 defaults:
   run:
     working-directory: src
@@ -20,8 +20,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Banktransactions.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build Banktransactions.csproj --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
